@@ -50,7 +50,20 @@
                 <div class="taskList">
                   <h3>Bastão Recebido</h3>
                   <span>Checklist</span>
-
+                  <ul>
+                    <li class="taskDone">
+                      <img src="../assets/taskDone.png" alt="">
+                      <span>Recebimento de Bastão</span>
+                    </li>
+                    <li class="taskNotDone">
+                      <img src="../assets/taskUndone.png" alt="">
+                      <span>Definir analista responsável</span>
+                    </li>
+                    <li class="taskNotDone">
+                      <img src="../assets/taskUndone.png" alt="">
+                      <span>Adicionar item de checklist</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
 
@@ -136,7 +149,7 @@ export default {
 
   @font-face {
     font-family: open-sans-light;
-    src: url('../fonts/OpenSans-LightItalic.ttf');
+    src: url('../fonts/OpenSans-Light.ttf');
   }
 
   .modal-header img {
@@ -255,15 +268,18 @@ export default {
   }
 
   .DadosEmpresa {
-    flex: 2;
+    display: flex;
     border-bottom: 1px solid #DFDFDF;
-    margin: 32px;
-    padding-bottom: 13px;
-    height: 20%;
+    height: 32%;
+    padding-bottom: 12px;
   }
 
   .divContent {
       flex: 2;
+      margin-left: 27px;
+      margin-top: 14px;
+      padding-bottom: 13px;
+      margin-right: 32px;
   }
 
   .NomePontos {
@@ -422,4 +438,76 @@ export default {
   .botoesTag {
     margin-top: 32px;
   }
+
+  .taskList {
+    overflow-y: scroll;
+    margin-top: 17px;
+  }
+
+  .taskList h3 {
+    margin-bottom: 0;
+    margin-top: 0;
+    color: #605959;
+    font-family: open-sans-semi-bold;
+    font-size: 16px;
+  }
+
+  .taskList span {
+    color: #5f697a;
+    font-size: 12px;
+    font-family: open-sans-regular;
+  }
+
+  .taskList ul {
+    list-style: none;
+    padding: 0;
+  }
+  .taskList li {
+    margin-bottom: 15px;
+  }
+
+  .taskDone {
+    font-size: 14px;
+    font-family: open-sans-regular;
+    color: #605959;
+  }
+
+  .taskDone img {
+    position: relative;
+    top: 6px;
+  }
+
+  .taskDone span {
+    margin-left: 8px;
+    line-height: 19px;
+    text-decoration: line-through;
+  }
+
+  .taskNotDone {
+    font-family: open-sans-regular;
+    font-size: 14px;
+    line-height: 19px;
+    color: #605959;
+  }
+
+  .taskNotDone span {
+    margin-left: 8px;
+  }
+
+  .taskNotDone img {
+    position: relative;
+    top: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+      background-color: #F4F4F4;
+  }
+  ::-webkit-scrollbar {
+      width: 6px;
+      background: #F4F4F4;
+  }
+  ::-webkit-scrollbar-thumb {
+      background: #dad7d7;
+  }
+
 </style>
