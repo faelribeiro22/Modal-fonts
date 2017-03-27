@@ -11,20 +11,26 @@
                 <option value="">Bastão recebido</option>
               </select>
             </div>
-            <img src="../assets/iconeRelogio.png" alt=""/>
+            <img src="../assets/iconeRelogio.png" class="imagemRelogioTempo"/>
             <div class="tempoAtivacao">
               <label for="">Tempo de Ativação:</label>
               <span>18 dias</span>
             </div>
             <div class="classeResponsavel">
-              <multiselect v-model="value" :options="options"
-              :max-height="150" track-by="title" :custom-label="customLabel" :show-labels="false" :searchable="false"
-              :hide-selected="true">
-                  <template slot="option" scope="props">
-                      <img class="option__image" :src="props.option.img">
-                      <div class="option__desc"><span class="option__title">{{ props.option.title }}</span><span class="option__small">{{ props.option.desc }}</span></div>
-                  </template>
-              </multiselect>
+              <div class="selectReponsavel">
+                <div class="imgSelectResponsavel">
+                  <img src="../assets/foto01.png">
+                </div>
+                <span class="spanTextoAltera">Alterar responsável para:</span>
+                <multiselect v-model="value" :options="options"
+                :max-height="150" track-by="title" :custom-label="customLabel" :show-labels="false" :searchable="false"
+                :hide-selected="true">
+                    <template slot="option" scope="props">
+                        <img class="option__image" :src="props.option.img">
+                        <div class="option__desc"><span class="option__title">{{ props.option.title }}</span><span class="option__small">{{ props.option.desc }}</span></div>
+                    </template>
+                </multiselect>
+              </div>
             </div>
           </div>
 
@@ -52,15 +58,15 @@
                   <span>Checklist</span>
                   <ul>
                     <li class="taskDone">
-                      <img src="../assets/taskDone.png" alt="">
+                      <img src="../assets/taskDone.png">
                       <span>Recebimento de Bastão</span>
                     </li>
                     <li class="taskNotDone">
-                      <img src="../assets/taskUndone.png" alt="">
+                      <img src="../assets/taskUndone.png">
                       <span>Definir analista responsável</span>
                     </li>
                     <li class="taskNotDone">
-                      <img src="../assets/taskUndone.png" alt="">
+                      <img src="../assets/taskUndone.png">
                       <span>Adicionar item de checklist</span>
                     </li>
                   </ul>
@@ -68,9 +74,22 @@
                 <div class="addComentario">
                   <h4>Adicionar comentário</h4>
                   <div class="campoComentario">
-                    <img src="../assets/foto02.png" alt="">
+                    <img src="../assets/foto02.png">
                     <textarea name="name" rows="6" cols="45"></textarea>
                     <button type="button" name="button">Comentar</button>
+                  </div>
+                </div>
+                <div class="containerListComentarios">
+                  <h4>Comentários</h4>
+                  <div class="listComentarios">
+                    <img src="../assets/foto01.png">
+                    <div class="nomeComentario">
+                      <label>Rafaela Lima</label>
+                      <span>12:23 - 01/01/2017 (há 3 dias)</span>
+                    </div>
+                    <div class="containerComentario">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -127,6 +146,11 @@ export default {
       ],
       value: {title:'Anonimo', img:'src/assets/img/no-photo.png'},
     }
+  },
+  methods: {
+    customLabel(title) {
+      return `${title}`;
+    }
   }
 }
 </script>
@@ -160,7 +184,7 @@ export default {
     src: url('../fonts/OpenSans-Light.ttf');
   }
 
-  .modal-header img {
+  .modal-header .imagemRelogioTempo {
     width: 18px;
     height: 21px;
     position: relative;
@@ -245,15 +269,80 @@ export default {
     color: #605959;
   }
 
-  .multiselect {
+  .selectReponsavel {
     width: 275px;
-    height: 55px;
+    height: 60px;
     border: 1px solid #DCDCDC;
     border-radius: 3px;
+    background-color: #EFF0F3;
+  }
+
+  .imgSelectResponsavel {
+    width: 52px;
+    height: 57px;
+    background-color: #EFF0F3;
+  }
+
+  .imgSelectResponsavel img {
+    width: 100%;
+    height: 60px;
+  }
+
+  .multiselect {
+    width: 228px;
+    height: 55px;
+    bottom: 61px;
   }
 
   .multiselect__tags,.multiselect__single {
     background-color: #EFF0F3;
+  }
+
+  .multiselect__select {
+    z-index: 1;
+    left: 223px;
+  }
+
+  .multiselect__content {
+    width: 275px;
+    overflow-x: hidden;
+  }
+
+  .multiselect__tags {
+    left: 48px;
+    position: relative;
+    height: 22px;
+    top: 4px;
+    border: 0;
+  }
+
+  .multiselect__single {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
+    color: #605959;
+  }
+
+  .option__desc {
+    position: relative;
+    left: 45px;
+    bottom: 25px;
+    width: 100%;
+  }
+
+  .option__image {
+    width: 41px;
+    height: 41px;
+  }
+
+  .spanTextoAltera {
+    position: relative;
+    bottom: 54px;
+    left: 61px;
+    font-size: 13px;
+    line-height: 18px;
+    color: #605959;
+    font-weight: normal;
   }
 
   .classeResponsavel {
@@ -372,6 +461,9 @@ export default {
     background-color: #D87171;
     display: inline-block;
     padding: 4px 9px 5px 8px;
+    padding-top: 5px;
+    padding-right: 9px;
+    padding-bottom: 7px;
     margin-bottom: 7px;
   }
 
@@ -550,6 +642,58 @@ export default {
     position: relative;
     left: 350px;
     top: 4px;
+  }
+
+  .containerListComentarios {
+    margin-top: 27px;
+    border-top: 1px solid #DFDFDF;
+  }
+
+  .containerListComentarios h4 {
+    font-size: 14px;
+    font-family: open-sans-regular;
+    line-height: 19px;
+    color: #605959;
+    font-weight: 400;
+  }
+
+  .containerComentario {
+    width: 384px;
+    background-color: #EFF0F3;
+    border: 1px solid #C8C8C8;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-left: 56px;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 21px;
+    color: #827D7D;
+    font-family: open-sans-regular;
+    font-weight: 400;
+  }
+
+  .nomeComentario label {
+    margin-left: 60px;
+    font-size: 14px;
+    font-family: open-sans-regular;
+    font-weight: 600;
+    line-height: 21px;
+    color: #2570B3;
+  }
+
+  .nomeComentario span {
+    font-size: 10px;
+    line-height: 21px;
+    color: #8B8B8B;
+  }
+
+  .listComentarios img {
+    position: relative;
+    top: 42px;
+  }
+
+  .multiselect__select {
+    bottom: 4px;
   }
 
   ::-webkit-scrollbar-track {
