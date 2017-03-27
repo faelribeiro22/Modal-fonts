@@ -65,6 +65,14 @@
                     </li>
                   </ul>
                 </div>
+                <div class="addComentario">
+                  <h4>Adicionar comentário</h4>
+                  <div class="campoComentario">
+                    <img src="../assets/foto02.png" alt="">
+                    <textarea name="name" rows="6" cols="45"></textarea>
+                    <button type="button" name="button">Comentar</button>
+                  </div>
+                </div>
               </div>
 
               <div class="divTags">
@@ -280,6 +288,7 @@ export default {
       margin-top: 14px;
       padding-bottom: 13px;
       margin-right: 32px;
+      height: 100%;
   }
 
   .NomePontos {
@@ -442,6 +451,7 @@ export default {
   .taskList {
     overflow-y: scroll;
     margin-top: 17px;
+    height: 178px;
   }
 
   .taskList h3 {
@@ -497,6 +507,49 @@ export default {
   .taskNotDone img {
     position: relative;
     top: 6px;
+  }
+
+  .addComentario {
+    margin-top: 34px;
+    border-top: 1px solid #DFDFDF;
+  }
+
+  .addComentario h4{
+    margin-bottom: 16px;
+    font-family: open-sans-regular;
+    font-size: 14px;
+    line-height: 19px;
+    color: #605959;
+    font-weight: normal;
+  }
+
+  .campoComentario img {
+    border-radius: 10px;
+    width: 35px;
+    height: 34px;
+    position: relative;
+    bottom: 62px;
+  }
+
+  .campoComentario textarea {
+    resize: none;
+    border: 1px solid #C8C8C8;
+    border-radius: 8px;
+    margin-left: 19px;
+    background-color: #EFF0F3;
+  }
+
+  .campoComentario button {
+    width: 91px;
+    height: 36px;
+    background-color: #25B485;
+    border: 1px solid #25B485;
+    border-radius: 8px;
+    color: #fff;
+    font-family: open-sans-semi-bold;
+    position: relative;
+    left: 350px;
+    top: 4px;
   }
 
   ::-webkit-scrollbar-track {
