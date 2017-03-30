@@ -44,7 +44,26 @@
                   <div class="imgInterrogacao">
                     ?
                   </div>
-
+                  <div class="detalhesPontos">
+                    <table>
+                      <tr>
+                        <td class="tdEsquerda"><span>5 médicos</span></td>
+                        <td class="tdDireita"><span>18,0 pts</span></td>
+                      </tr>
+                      <tr>
+                        <td class="tdEsquerda"><span>80 procedimentos</span></td>
+                        <td class="tdDireita"><span>22,0 pts</span></td>
+                      </tr>
+                      <tr>
+                        <td class="tdEsquerda"><span>Conversão de dados</span></td>
+                        <td class="tdDireita"><span>5,0 pts</span></td>
+                      </tr>
+                      <tr>
+                        <td class="tdEsquerda tdTotal"><span>Total</span></td>
+                        <td class="tdDireita tdTotal"><span>45,0 pts</span></td>
+                      </tr>
+                    </table>
+                  </div>
                 </div>
                 <div class="divDadosResponsavel">
                   <span>Responsável:</span>
@@ -86,6 +105,15 @@
                     <div class="nomeComentario">
                       <label>Rafaela Lima</label>
                       <span>12:23 - 01/01/2017 (há 3 dias)</span>
+                    </div>
+                    <div class="containerComentario">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </div>
+                    <div class="containerComentario">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </div>
+                    <div class="containerComentario">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </div>
                     <div class="containerComentario">
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -192,6 +220,35 @@ export default {
     left: 25px;
   }
 
+  .detalhesPontos {
+    background-image: url("../assets/DetalhesPontos.png");
+    height: 130px;
+    width: 346px;
+    position: absolute;
+    top: 96px;
+    left: 770px;
+  }
+
+  .detalhesPontos table{
+    width: 273px;
+    height: 88px;
+    position: relative;
+    left: 46px;
+    top: 14px;
+    font-family: open-sans-regular;
+    font-size: 14px;
+    color: #605959;
+  }
+
+  .tdTotal {
+    color: #d97575;
+  }
+  .tdDireita {
+    text-align: right;
+  }
+  .tdEsquerda {
+    text-align: left;
+  }
   .modal-mask {
     position: fixed;
     z-index: 9998;
