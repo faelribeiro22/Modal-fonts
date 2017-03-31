@@ -22,14 +22,16 @@
                   <img src="../assets/foto01.png">
                 </div>
                 <span class="spanTextoAltera">Alterar responsável para:</span>
-                <multiselect v-model="value" :options="options"
-                :max-height="150" track-by="title" :custom-label="customLabel" :show-labels="false" :searchable="false"
-                :hide-selected="true">
-                    <template slot="option" scope="props">
-                        <img class="option__image" :src="props.option.img">
-                        <div class="option__desc"><span class="option__title">{{ props.option.title }}</span><span class="option__small">{{ props.option.desc }}</span></div>
-                    </template>
-                </multiselect>
+                <div class="divMulti">
+                  <multiselect v-model="value" :options="options"
+                  :max-height="150" track-by="title" :custom-label="customLabel" :show-labels="false" :searchable="false"
+                  :hide-selected="true">
+                      <template slot="option" scope="props">
+                          <img class="option__image" :src="props.option.img">
+                          <div class="option__desc"><span class="option__title">{{ props.option.title }}</span><span class="option__small">{{ props.option.desc }}</span></div>
+                      </template>
+                  </multiselect>
+                </div>
               </div>
             </div>
           </div>
@@ -41,10 +43,13 @@
                 <div class="NomePontos">
                   <span class="descricaoEmpresa">SAMED</span><br>
                   <span class="pontos">18,75 pontos</span>
-                  <div class="imgInterrogacao">
+                  <div class="imgInterrogacao" v-show="!pontos" @click="tabelaPontos">
                     ?
                   </div>
-                  <div class="detalhesPontos">
+                  <div class="ImgInterrogacaoAtiva" v-show="pontos" @click="tabelaPontos">
+                    ?
+                  </div>
+                  <div class="detalhesPontos" v-show="pontos">
                     <table>
                       <tr>
                         <td class="tdEsquerda"><span>5 médicos</span></td>
@@ -173,11 +178,15 @@ export default {
                 {title:'Anonimo3', img:'src/assets/img/no-photo.png'}
       ],
       value: {title:'Anonimo', img:'src/assets/img/no-photo.png'},
+      pontos: false
     }
   },
   methods: {
     customLabel(title) {
       return `${title}`;
+    },
+    tabelaPontos() {
+      this.pontos = !this.pontos;
     }
   }
 }
@@ -355,41 +364,16 @@ export default {
     background-color: #EFF0F3;
   }
 
-  .multiselect__select {
-    z-index: 1;
-    left: 223px;
-  }
-
-  .multiselect__content {
-    width: 275px;
-    overflow-x: hidden;
-  }
-
-  .multiselect__tags {
+  .divMulti{
+    position: relative;
+    top: 5px;
     left: 48px;
-    position: relative;
-    height: 22px;
-    top: 4px;
-    border: 0;
+    height: 55px;
+    width: 275px;
   }
 
-  .multiselect__single {
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 20px;
-    color: #605959;
-  }
-
-  .option__desc {
-    position: relative;
-    left: 45px;
-    bottom: 25px;
+  .multiselect--active {
     width: 100%;
-  }
-
-  .option__image {
-    width: 41px;
-    height: 41px;
   }
 
   .spanTextoAltera {
@@ -474,6 +458,23 @@ export default {
     text-align: center;
     color: #fff;
   }
+
+
+  .ImgInterrogacaoAtiva {
+    border-radius: 11px;
+    padding: 2px;
+    text-align: center;
+    color: #A4AABB;
+    border: 1px solid #A4AABB;
+    background-color: #fff;
+    width: 19px;
+    height: 19px;
+    position: relative;
+    bottom: 22px;
+    left: 120px;
+  }
+
+
 
   .descricaoEmpresa {
     font-size: 26px;
@@ -749,9 +750,6 @@ export default {
     top: 42px;
   }
 
-  .multiselect__select {
-    bottom: 4px;
-  }
 
   ::-webkit-scrollbar-track {
       background-color: #F4F4F4;
