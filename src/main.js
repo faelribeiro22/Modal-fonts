@@ -3,7 +3,9 @@
 import Vue from 'vue';
 import App from './App';
 import VueLazyload from 'vue-lazyload';
+import  VTooltip from 'v-tooltip';
 
+Vue.use(VTooltip);
 Vue.use(VueLazyload);
 Vue.config.productionTip = false
 

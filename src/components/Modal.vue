@@ -49,7 +49,7 @@
                   <div class="ImgInterrogacaoAtiva" v-show="pontos" @click="tabelaPontos">
                     ?
                   </div>
-                  <div class="detalhesPontos" v-show="pontos">
+                  <div class="detalhesPontos arrow_box" v-show="pontos">
                     <table>
                       <tr>
                         <td class="tdEsquerda"><span>5 médicos</span></td>
@@ -178,7 +178,8 @@ export default {
                 {title:'Anonimo3', img:'src/assets/img/no-photo.png'}
       ],
       value: {title:'Anonimo', img:'src/assets/img/no-photo.png'},
-      pontos: false
+      pontos: false,
+      msg:'Hello'
     }
   },
   methods: {
@@ -221,6 +222,35 @@ export default {
     src: url('../fonts/OpenSans-Light.ttf');
   }
 
+  .arrow_box {
+  	position: relative;
+  	background: #FFFFFF;
+  	border: 1px solid #bdbdbd;
+  }
+  .arrow_box:after, .arrow_box:before {
+  	right: 100%;
+  	top: 50%;
+  	border: solid transparent;
+  	content: " ";
+  	height: 0;
+  	width: 0;
+  	position: absolute;
+  	pointer-events: none;
+  }
+
+  .arrow_box:after {
+  	border-color: rgba(255, 255, 255, 0);
+  	border-right-color: #FFFFFF;
+  	border-width: 11px;
+  	margin-top: -11px;
+  }
+  .arrow_box:before {
+  	border-color: rgba(189, 189, 189, 0);
+  	border-right-color: #bdbdbd;
+  	border-width: 12px;
+  	margin-top: -12px;
+  }
+
   .modal-header .imagemRelogioTempo {
     width: 18px;
     height: 21px;
@@ -230,12 +260,12 @@ export default {
   }
 
   .detalhesPontos {
-    background-image: url("../assets/DetalhesPontos.png");
     height: 130px;
     width: 346px;
     position: absolute;
     top: 96px;
     left: 770px;
+    border-radius: 4px;
   }
 
   .detalhesPontos table{
