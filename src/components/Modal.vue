@@ -43,32 +43,6 @@
                 <div class="NomePontos">
                   <span class="descricaoEmpresa">SAMED</span><br>
                   <span class="pontos">18,75 pontos</span>
-                  <div class="imgInterrogacao" v-show="!pontos" @click="tabelaPontos">
-                    ?
-                  </div>
-                  <div class="ImgInterrogacaoAtiva" v-show="pontos" @click="tabelaPontos">
-                    ?
-                  </div>
-                  <div class="detalhesPontos arrow_box" v-show="pontos">
-                    <table>
-                      <tr>
-                        <td class="tdEsquerda"><span>5 médicos</span></td>
-                        <td class="tdDireita"><span>18,0 pts</span></td>
-                      </tr>
-                      <tr>
-                        <td class="tdEsquerda"><span>80 procedimentos</span></td>
-                        <td class="tdDireita"><span>22,0 pts</span></td>
-                      </tr>
-                      <tr>
-                        <td class="tdEsquerda"><span>Conversão de dados</span></td>
-                        <td class="tdDireita"><span>5,0 pts</span></td>
-                      </tr>
-                      <tr>
-                        <td class="tdEsquerda tdTotal"><span>Total</span></td>
-                        <td class="tdDireita tdTotal"><span>45,0 pts</span></td>
-                      </tr>
-                    </table>
-                  </div>
                 </div>
                 <div class="divDadosResponsavel">
                   <span>Responsável:</span>
@@ -77,7 +51,11 @@
                   <span>eu@thalysguimaraes.com</span>
                 </div>
               </div>
-                <div class="taskList">
+              <div class="tab">
+                <button class="tablinks" @click="tabTaskToggle">Tasks</button>
+                <button class="tablinks" @click="tabPontosToggle">Detalhes Pontos</button>
+              </div>
+                <div class="taskList" v-show="tabTask">
                   <h3>Bastão Recebido</h3>
                   <span>Checklist</span>
                   <ul>
@@ -95,6 +73,19 @@
                     </li>
                   </ul>
                 </div>
+                <div class="listaPontos" v-show="tabPontos">
+                  <table>
+                    <tr>
+                      <td>Médicos</td>
+                      <td>5</td>
+                    </tr>
+                    <tr>
+                      <td>Sei lá</td>
+                      <td>22</td>
+                    </tr>
+                  </table>
+                </div>
+
                 <div class="addComentario">
                   <h4>Adicionar comentário</h4>
                   <div class="campoComentario">
@@ -179,7 +170,9 @@ export default {
       ],
       value: {title:'Anonimo', img:'src/assets/img/no-photo.png'},
       pontos: false,
-      msg:'Hello'
+      msg:'Hello',
+      tabTask: false,
+      tabPontos: false
     }
   },
   methods: {
@@ -188,6 +181,14 @@ export default {
     },
     tabelaPontos() {
       this.pontos = !this.pontos;
+    },
+    tabTaskToggle() {
+      this.tabTask = true;
+      this.tabPontos = false;
+    },
+    tabPontosToggle() {
+      this.tabTask = false;
+      this.tabPontos = true;
     }
   }
 }
@@ -220,6 +221,49 @@ export default {
   @font-face {
     font-family: open-sans-light;
     src: url('../fonts/OpenSans-Light.ttf');
+  }
+
+  div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+
+  div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  }
+
+  div.tab button:hover {
+    background-color: #ddd;
+  }
+
+  div.tab button.active {
+    background-color: #ccc;
+  }
+
+  @-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  @keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
   }
 
   .arrow_box {
